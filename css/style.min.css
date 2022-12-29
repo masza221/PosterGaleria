@@ -291,8 +291,6 @@ nav li {
   z-index: 1;
 }
 .img-container__img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   object-position: 50% 50%;
 }
@@ -378,8 +376,8 @@ nav li {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   background-image: url("../images/img2.webp");
+  background-size:auto 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -495,6 +493,9 @@ nav li {
 @media only screen and (max-width: 600px) {
   html {
     font-size: 14px;
+  }
+  .img-container__img{
+    height: 50%;
   }
 }
 @media only screen and (min-width: 600px) {
