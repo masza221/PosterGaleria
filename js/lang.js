@@ -1,18 +1,18 @@
-
-const defaultLocale = "en";
+const defaultLocale = "pl";
 let locale;
 let translations = {};
-const switcher =  document.querySelector("#lang");
-const supportedLocales = ["en", "pl" , "de" , "fr"];
-
+let translating = false;
+const switcher = document.querySelector("#lang");
+const supportedLocales = ["en", "pl", "de", "fr"];
 
 function getLocalefromStorage() {
-    return localStorage.getItem("locale");
+  return localStorage.getItem("locale");
 }
 
 // ...
 document.addEventListener("DOMContentLoaded", () => {
-  const initialLocale = getLocalefromStorage() || supportedOrDefault(browserLocales(true));
+  const initialLocale =
+    getLocalefromStorage() || supportedOrDefault(browserLocales(true));
   setLocale(initialLocale);
   bindLocaleSwitcher(initialLocale);
 });
@@ -28,49 +28,71 @@ function supportedOrDefault(locales) {
 // ...
 function browserLocales(languageCodeOnly = false) {
   return navigator.languages.map((locale) =>
-    languageCodeOnly ? locale.split("-")[0] : locale,
+    languageCodeOnly ? locale.split("-")[0] : locale
   );
 }
 
 function bindLocaleSwitcher(initialValue) {
-    switcher.value = initialValue;
-    switcher.onchange = (e) => {
-      // Set the locale to the selected option[value]
-      switcher.disabled  = true;
-      setLocale(e.target.value);
-      localStorage.setItem("locale", e.target.value);
-    };
-  }
-// Load translations for the given locale and translate
-// the page to this locale
+  switcher.value = initialValue;
+  switcher.onchange = (e) => {
+    translating = true;
+    switcher.disabled = true;
+    setLocale(e.target.value);
+    localStorage.setItem("locale", e.target.value);
+  };
+}
 async function setLocale(newLocale) {
   if (newLocale === locale) return;
-  const newTranslations =
-    await fetchTranslationsFor(newLocale);
+  const newTranslations = await fetchTranslationsFor(newLocale);
   locale = newLocale;
   translations = newTranslations;
   translatePage();
 }
-// Retrieve translations JSON object for the given
-// locale over the network
 async function fetchTranslationsFor(newLocale) {
-  const response = await fetch(`../langs/${newLocale}.json`);
+  const response = await fetch(`../langs/${getFolderName()}/${newLocale}.json`);
   return await response.json();
 }
-// Replace the inner text of each element that has a
-// data-i18n-key attribute with the translation corresponding
-// to its data-i18n-key
-function translatePage() {
-  document
-    .querySelectorAll("[data-lang]")
-    .forEach(translateElement);
-    switcher.disabled = false
+function getFolderName() {
+  const link = window.location.pathname;
+  const linkName = link.split("/").pop();
+  let folder = linkName.split(".")[0];
+  if (folder === "") folder = "index";
+  return folder;
 }
-// Replace the inner text of the given HTML element
-// with the translation in the active locale,
-// corresponding to the element's data-i18n-key
+
+function translatePage() {
+  document.querySelectorAll("[data-lang]").forEach(translateElement);
+  switcher.disabled = false;
+  createPopup();
+  translating = false;
+}
 function translateElement(element) {
   const key = element.getAttribute("data-lang");
   const translation = translations[key];
   element.innerText = translation;
+}
+
+function createPopup() {
+  if (!translating) return;
+
+  
+  if(document.querySelector(".popup")) document.querySelector(".popup").remove();
+
+  const popup = document.createElement("div");
+  const message = translations["message"];
+  popup.classList.add("popup");
+  popup.innerHTML = `
+    <div class="Message Message--green">
+      <div class="Message-icon"> &#10003;</div>
+      <div class="Message-body">
+        <p>${message}</p>
+      </div>
+    </div>
+  `;
+  document.querySelector("body").appendChild(popup);
+
+
+  setTimeout(() => {
+    popup.remove();
+  }, 4000);
 }

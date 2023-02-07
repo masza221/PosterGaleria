@@ -158,7 +158,7 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-canvasHandler.addEventListener("mousemove", (e) => {
+window.addEventListener("mousemove", (e) => {
 
   if(settings.particles.effects.followMouse.active )
 

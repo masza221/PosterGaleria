@@ -18,8 +18,7 @@ const splide = new Splide(".splide", {
     },
     480: {
       perPage: 1,
-      focus: "center",
-      width: "90%",
+      focus: "center"
     },
   },
 });
