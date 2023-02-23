@@ -4,7 +4,6 @@ section {
   transform: translateX(-50%);
 }
 .heading,
-.select,
 .top-bar,
 nav,
 section {
@@ -109,8 +108,8 @@ a {
   color: #666;
 }
 .top-bar__lang a,
-body,
-select {
+body
+ {
   color: var(--main-font-color);
 }
 html {
@@ -167,7 +166,6 @@ body {
   margin-left: 20px;
   width: 100px;
 }
-.select,
 nav li {
   width: min-content;
 }
@@ -191,25 +189,17 @@ nav li {
   transition: 0.5s ease-in-out;
   width: 25px;
 }
-select {
-  appearance: none;
-  outline: 0;
-  border: 0;
-  box-shadow: none;
-  flex: 1;
-  background-image: none;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0);
-}
-select::-ms-expand {
-  display: none;
-}
-.select {
-  height: min-content;
-  border-radius: 2px;
-  padding: 2px;
+.langs{
   display: flex;
-  border: 1px solid #000;
+  gap: 5px;
+}
+.langs__item{
+ width: 30px;
+ display: flex;
+ margin-left: 5px;
+}
+.langs__item:hover{
+  cursor: pointer;
 }
 .step__number,
 .why-we__icon {

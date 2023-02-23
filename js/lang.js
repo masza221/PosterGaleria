@@ -2,8 +2,21 @@ const defaultLocale = "pl";
 let locale;
 let translations = {};
 let translating = false;
-const switcher = document.querySelector("#lang");
 const supportedLocales = ["en", "pl", "de", "fr"];
+
+const langButtons = document.querySelectorAll(".langs__item");
+
+langButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    if(translating) return;
+    translating = true;
+    const newLocale = e.target.getAttribute("data-value");
+    if(newLocale === locale)  return translating = false;; 
+    setLocale(newLocale);
+    localStorage.setItem("locale", newLocale);
+  });
+});
+
 
 function getLocalefromStorage() {
   return localStorage.getItem("locale");
@@ -14,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const initialLocale =
     getLocalefromStorage() || supportedOrDefault(browserLocales(true));
   setLocale(initialLocale);
-  bindLocaleSwitcher(initialLocale);
 });
 // ...
 function isSupported(locale) {
@@ -32,15 +44,6 @@ function browserLocales(languageCodeOnly = false) {
   );
 }
 
-function bindLocaleSwitcher(initialValue) {
-  switcher.value = initialValue;
-  switcher.onchange = (e) => {
-    translating = true;
-    switcher.disabled = true;
-    setLocale(e.target.value);
-    localStorage.setItem("locale", e.target.value);
-  };
-}
 async function setLocale(newLocale) {
   if (newLocale === locale) return;
   const newTranslations = await fetchTranslationsFor(newLocale);
@@ -62,7 +65,6 @@ function getFolderName() {
 
 function translatePage() {
   document.querySelectorAll("[data-lang]").forEach(translateElement);
-  switcher.disabled = false;
   createPopup();
   translating = false;
 }

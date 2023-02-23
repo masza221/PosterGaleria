@@ -61,7 +61,7 @@ let settings = {
     number: calcNumber(),
     size: 2,
     speed: 0.6,
-    color: "rgba(255,255,255,0.25)",
+    color: "rgba(255,255,255,0.2)",
     effects: {
       followMouse: {
         active: true,
@@ -73,7 +73,7 @@ let settings = {
     draw: true,
     size: 2,
     radius: 100,
-    color: "rgba(255,255,255,0.25)",
+    color: "rgba(255,255,255,0.2)",
   },
 };
 
@@ -162,7 +162,6 @@ window.addEventListener("mousemove", (e) => {
 
   if(settings.particles.effects.followMouse.active )
 
-  setTimeout(() => {
     moving = true;
 
     let dx = e.clientX - prevMouse.x;
@@ -179,7 +178,6 @@ window.addEventListener("mousemove", (e) => {
       x: e.clientX,
       y: e.clientY,
     };
-  }, 100);
   }
 );
 
