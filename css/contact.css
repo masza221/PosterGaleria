@@ -207,6 +207,9 @@ nav li {
   gap: 45px;
   opacity: 0;
 }
+.active{
+  color: #a44198 !important;
+}
 .contact-info,
 .footer {
   flex-direction: column;
