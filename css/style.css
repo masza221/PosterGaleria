@@ -40,6 +40,7 @@ select {
 .select {
   overflow: hidden;
 }
+
 .footer__info a:hover,
 .nav__list a:hover {
   color: #a44198;
@@ -114,7 +115,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   line-height: 24px;
- 
 }
 html {
   font-size: 12px;
@@ -162,6 +162,8 @@ nav {
   width: 100%;
   border-bottom: 1px solid #c9c9c9;
   z-index: 1;
+  font-weight: 500;
+  word-spacing: 3px;
 }
 .top-bar__row {
   justify-content: space-around;
@@ -179,7 +181,6 @@ nav {
   margin-left: 20px;
   width: 100px;
 }
-.select,
 nav li {
   width: min-content;
 }
@@ -235,16 +236,18 @@ nav li {
 }
 .nav__list {
   opacity: 0;
-  gap: 20px;
+  gap: 45px;
 }
 .nav__list a {
   color: #000;
   transition: color 0.1s ease-in-out;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   line-height: 14px;
   padding: 0 0 5px;
   font-weight: 600;
-  font-size: 13px;
+}
+.active{
+  color: #a44198 !important;
 }
 .nav__img {
   opacity: 0;
@@ -474,6 +477,7 @@ nav li {
   letter-spacing: 1px;
   line-height: 1.5;
   max-width: 450px;
+  font-size: 1rem;
 }
 .splide__slide {
   font-size: 1.5rem;
@@ -567,17 +571,18 @@ nav li {
   .about-us__content,
   .nav__list {
     flex-direction: column;
+    gap:25px;
   }
   nav {
     top: 50%;
     left: 50%;
   }
   .item {
-    width: 250px;
+    width: 220px;
   }
   .item .item__photo img {
-    height: 250px;
-    width: 250px;
+    height: 220px;
+    width: 220px;
   }
   .heading-title {
     font-size: 1.3rem;
@@ -611,5 +616,78 @@ nav li {
 @media screen and (min-width:1200px) {
   .about-us__content{
     gap: 200px;
+  }
+}
+
+@keyframes showPopup {
+  0% {
+    right: 50px;
+    bottom: -150px;
+  }
+  25%,
+  75% {
+    bottom: 50px;
+    right: 50px;
+    opacity: 1;
+  }
+  100% {
+    right: -150px;
+    bottom: 50px;
+    opacity: 0;
+  }
+}
+@keyframes showPopupMobile {
+  0%,
+  100% {
+    bottom: -40px;
+  }
+  25%,
+  75% {
+    bottom: 0;
+  }
+}
+.Message {
+  display: table;
+  position: fixed;
+  margin: 40px auto 0;
+  width: fit-content;
+  height: fit-content;
+  background-color: #0074d9;
+  color: #fff;
+  animation: 4s showPopup;
+}
+.Message-body,
+.Message-icon {
+  display: table-cell;
+  vertical-align: middle;
+}
+.Message--green {
+  background-color: #2ecc40;
+}
+.Message-icon {
+  width: 30px;
+  height: 40px;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.Message-icon > i {
+  width: 20px;
+  font-size: 20px;
+}
+.Message-body {
+  padding: 0 5px;
+}
+@media only screen and (max-width: 600px) {
+  .Message {
+    width: 100%;
+    animation: 4s showPopupMobile;
+  }
+  .Message-icon {
+    width: 40px;
+    padding: 5px;
+  }
+  .Message-body > p {
+    font-size: 16px;
   }
 }

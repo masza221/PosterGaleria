@@ -60,7 +60,7 @@ let settings = {
     draw: true,
     number: calcNumber(),
     size: 2,
-    speed: 0.6,
+    speed: 0.8,
     color: "rgba(255,255,255,0.2)",
     effects: {
       followMouse: {
@@ -161,9 +161,7 @@ function animate() {
 window.addEventListener("mousemove", (e) => {
 
   if(settings.particles.effects.followMouse.active )
-
-    moving = true;
-
+  {
     let dx = e.clientX - prevMouse.x;
     let dy = e.clientY - prevMouse.y;
   
@@ -179,6 +177,7 @@ window.addEventListener("mousemove", (e) => {
       y: e.clientY,
     };
   }
+}
 );
 
 

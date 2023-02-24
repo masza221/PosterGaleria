@@ -15,6 +15,9 @@
   <link rel="icon" type="image/x-icon" href="./images/logo-segnet.png" />
   <link rel="stylesheet" href="./splide-4.1.3/dist/css/splide.min.css">
   <link rel="stylesheet" href="./css/about.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="./js/lang.min.js"></script>
   <script defer src="./js/main.min.js"></script>
 </head>
@@ -27,20 +30,21 @@
           <div class="langs">
                 
             <div class="langs__item" >
-              <img src="./images/ico/united-kingdom-flag-icon.svg" data-value="EN" alt="English">
+              <img src="./images/ico/united-kingdom-flag-icon.svg" width="30px" height="21px" data-value="EN" alt="English">
             </div>
 
             <div class="langs__item">
-              <img src="./images/ico/poland-flag-icon.svg" data-value="PL" alt="Polish">
+              <img src="./images/ico/poland-flag-icon.svg" width="30px" height="21px" data-value="PL" alt="Polish">
             </div>
 
             <div class="langs__item" >
-              <img src="./images/ico/germany-flag-icon.svg" data-value="DE" alt="German">
+              <img src="./images/ico/germany-flag-icon.svg" width="30px" height="21px" data-value="DE" alt="German">
             </div>
 
             <div class="langs__item" >
-              <img src="./images/ico/france-flag-icon.svg" data-value="FR" alt="French">
+              <img src="./images/ico/france-flag-icon.svg" width="30px" height="21px" data-value="FR" alt="French">
             </div>
+
 
         </div>
           <div class="top-bar__contact">
@@ -59,8 +63,8 @@
       <nav>
         <img class="nav__img" data-fade="down" src="./images/logo.webp" alt="logo">
         <ul class="nav__list" data-fade="down" data-fade-delay="1s">
-          <li class="nav__item"><a href="/" class="active nav__link " data-lang="home">STRONA GŁÓWNA</a></li>
-          <li class="nav__item"><a href="./about-us.html" class="nav__link" data-lang="about">O NAS</a></li>
+          <li class="nav__item"><a href="/" class="nav__link " data-lang="home">STRONA GŁÓWNA</a></li>
+          <li class="nav__item"><a href="./about-us.html" class="nav__link active" data-lang="about">O NAS</a></li>
           <li class="nav__item"><a href="./coop.html" class="nav__link" data-lang="cooperation">WSPÓŁPRACA</a></li>
           <li class="nav__item"><a href="./contact.html" class="nav__link" data-lang="contact">KONTAKT</a></li>
         </ul>
@@ -74,16 +78,16 @@
 
 
     <section class="about" data-fade="down">
-      <h1 data-lang="about-us">O Naszej Firmie</h1>
+      <h1 class="about-title" data-lang="about-us">O NASZEJ FIRMIE</h1>
       <p class="about__who" data-lang="about-who-we-are">Dowiedz się z kim masz doczynienia</p>
       <img class="logo-segnet" src="./images/logo-segnet.png" alt="">
-      <p data-lang="about-desc">FIRMA POSTERGALERIA ZOSTAŁA ZAŁOŻONA W 1982 ROKU.</p>
+      <p class="about-desc" data-lang="about-desc">FIRMA POSTERGALERIA ZOSTAŁA ZAŁOŻONA W 1982 ROKU.</p>
 
     </section>
 
 
     <section class="photo">
-      <p data-fade="left" data-fade-delay="0.5s" class="photo__text" data-lang="photo-text">Jesteśmy wiodącym w kraju
+      <p class="photo-text" data-fade="left" data-fade-delay="0.5s" class="photo__text" data-lang="photo-text">Jesteśmy wiodącym w kraju
         producentem reprodukcji, fotografii w ramkach, canvasów, ramek na zdjęcia, podkładek, a także innych elementów
         dekoracji wnętrz. Nasza oferta stale poszerzana jest o nowe obrazy, wzory listew do ramek na zdjęcia, a także
         inne, dodatkowe produkty dekoracyjne.</p>
@@ -92,7 +96,7 @@
 
     <section class="factory">
       <img class="factory__img" data-fade-delay="0.2s" data-fade="left" src="./images/test2_1.webp" alt="" srcset="">
-      <p data-fade="right" data-fade-delay="0.5s" class="factory__text" data-lang="factory-text">Stosowane przez nas
+      <p class="factory-text" data-fade="right" data-fade-delay="0.5s" class="factory__text" data-lang="factory-text">Stosowane przez nas
         nowoczesne technologie oraz wysokiej klasy maszyny to gwarancja najwyższej jakości i precyzji wykonania. Dbałość
         o najdrobniejsze szczegóły podczas procesu produkcyjnego stanowi fundament naszej renomy. Wieloletnie
         doświadczenie oraz profesjonalna, wyspecjalizowana kadra pozwoliły zdobyć nam zaufanie klientów i ugruntowały
@@ -101,7 +105,7 @@
     </section>
 
     <section class="coop">
-      <p class="coop__text" data-fade-delay="0.5s" data-fade="left" data-lang="coop-text">Wszystkich, których interesuje
+      <p class="coop-text" class="coop__text" data-fade-delay="0.5s" data-fade="left" data-lang="coop-text">Wszystkich, których interesuje
         niebanalne wzornictwo i unikalne wyposażenie wnętrz, zapraszamy do zapoznania się z bogatym asortymentem obrazów
         w ramach, antyram i ramek na zdjęcia. Jesteśmy firmą wiarygodną i rzetelną, dla której zadowolenie klienta to
         jeden z priorytetów.</p>

@@ -13,15 +13,15 @@
   <title data-lang="title">
     Poster Galeria – producent obrazów, producent ramek, tanie obrazy
   </title>
+  <link rel="preload" href="./images/slide1-768.webp" as="image" media="(max-width: 768px)">
+  <link rel="preload" href="./images/slide1-1200.webp" as="image" media="(min-width: 768.1px) and (max-width: 1200px)">
+  <link rel="preload" href="./images/slide1-1.webp" as="image" media="(min-width: 1200.1px)">
   <link rel="icon" type="image/x-icon" href="./images/logo-segnet.png" />
   <link rel="stylesheet" rel="preload" as="style" href="splide-4.1.3/dist/css/splide.min.css">
   <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/message.css" rel="preload" as="style" />
-  <link rel="preload" href="./images/slide1-1200.webp" as="image" media="(max-width: 768px)">
-  <link rel="preload" href="./images/slide1.webp" as="image" media="(min-width: 769px)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="./js/lang.min.js"></script>
   <script defer src="./js/particles.min.js"></script>
   <script defer src="./js/main.min.js"></script>
@@ -72,13 +72,13 @@
         <canvas></canvas>
         <picture>
           <source media="(max-width: 768px)" srcset="./images/slide1-1200.webp">
-          <source media="(min-width: 769px)" srcset="./images/slide1.webp">
-          <img class="photo__img" src="./images/slide1.webp" width="1920" height="1080" alt="obraz">
+          <source media="(min-width: 769px)" srcset="./images/slide1-1.webp">
+          <img class="photo__img" rel="preload" src="./images/slide1-1.webp" width="1920" height="1080" alt="obraz">
         </picture>
         <nav>
           <img class="nav__img" data-fade="down" src="./images/logo.webp" alt="logo">
           <ul class="nav__list" data-fade="down" data-fade-delay="1s">
-            <li class="nav__item"><a href="#" class="active nav__link " data-lang="home">STRONA GŁÓWNA</a></li>
+            <li class="nav__item"><a href="#" class="active nav__link active " data-lang="home">STRONA GŁÓWNA</a></li>
             <li class="nav__item"><a href="./about-us.html" class="nav__link" data-lang="about">O NAS</a></li>
             <li class="nav__item"><a href="./coop.html" class="nav__link" data-lang="cooperation">WSPÓŁPRACA</a></li>
             <li class="nav__item"><a href="./contact.html" class="nav__link" data-lang="contact">KONTAKT</a></li>
@@ -154,7 +154,7 @@
 
           <div class="item" data-fade="down">
             <div class="item__photo">
-              <img class="item__photo__img" loading="lazy" width="300px" height="300px" src="./images/anty.webp" alt="obrazy">
+              <img class="item__photo__img" loading="lazy" width="300px" height="300px" src="./images/anty-500.webp" alt="obrazy">
             </div>
 
             <div class="item__description">
